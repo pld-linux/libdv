@@ -14,6 +14,7 @@ Source0:	http://download.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel
+BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
