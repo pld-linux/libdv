@@ -10,7 +10,7 @@ Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
 Version:	0.101
 Release:	1
-License:	GPL
+License:	LGPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 # Source0-md5:	d42832cbe0ad2c1c1f6a7eccf35f9323
