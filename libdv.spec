@@ -8,14 +8,13 @@
 Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
-Version:	0.101
+Version:	0.102
 Release:	1
 License:	LGPL
-Group:		X11/Libraries
+Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
-# Source0-md5:	d42832cbe0ad2c1c1f6a7eccf35f9323
-Patch0:		%{name}-extern.patch
-Patch1:		%{name}-include_fix.patch
+# Source0-md5:	21f2968fa756961ee2cb7d96834ade80
+Patch0:		%{name}-include_fix.patch
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -43,7 +42,7 @@ pisany zgodnie z oficjalnymi standardami DV, IEC 61834, SMPTE 314M.
 Summary:	Programs to encode and play DV files
 Summary(pl):	Programy do kodowania i odtwarzania plików DV
 Group:		X11/Applications/Multimedia
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description -n dv
 Programs to encode and play DV files.
@@ -55,7 +54,7 @@ Programy do kodowania i odtwarzania plików DV.
 Summary:	DV library headers
 Summary(pl):	Pliki nag³ówkowe biblioteki DV
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This is the libraries, include files and other resources you can use
@@ -69,7 +68,7 @@ libdv.
 Summary:	DV static libraries
 Summary(pl):	Statyczne biblioteki do obs³ugi formatu DV
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This is package with static libdv libraries.
@@ -80,7 +79,6 @@ Statyczna wersja biblioteki libdv.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
