@@ -10,6 +10,7 @@ Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
+# Source0-md5: 602fa45ad13059b571fef8548a4239a4
 Patch0:		%{name}-extern.patch
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
