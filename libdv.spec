@@ -23,6 +23,7 @@ BuildRequires:	libtool
 BuildRequires:	gtk+-devel >= 1.2.10-3
 BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	popt-devel
+BuildRequires:	SDL-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
