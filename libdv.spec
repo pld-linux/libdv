@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	gui	# don't build gui stuff
-%bcond_with	mmx		# use MMX asm (won't run on non-MMX CPU!)
+%bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
 #
 %ifarch athlon pentium3 pentium4
 %define		with_mmx	1
@@ -88,8 +88,8 @@ Statyczna wersja biblioteki libdv.
 	--enable-sdl \
 	--enable-gtk \
 %else
-    --disable-sdl \
-    --disable-gtk \
+	--disable-sdl \
+	--disable-gtk \
 %endif
 	--without-debug \
 	%{!?with_mmx:--disable-asm}
