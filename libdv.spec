@@ -9,7 +9,7 @@ Version:	0.99
 Release:	1
 License:	GPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/libdv/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 Patch0:		%{name}-extern.patch
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
