@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
+%bcond_without	gui	# don't build gui stuff
+%bcond_with	mmx		# use MMX asm (won't run on non-MMX CPU!)
 #
 %ifarch athlon pentium3 pentium4
 %define		with_mmx	1
@@ -9,19 +10,18 @@ Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
 Version:	0.103
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 # Source0-md5:	b5c7d0db672a76528e100828dd866a79
 Patch0:		%{name}-include_fix.patch
 URL:		http://libdv.sourceforge.net/
+%if %{with gui}
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	gtk+-devel >= 1.2.10-3
+%endif
 BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -82,14 +82,15 @@ Statyczna wersja biblioteki libdv.
 %patch0 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
 %configure \
 	--enable-shared \
+%if %{with gui}
 	--enable-sdl \
 	--enable-gtk \
+%else
+    --disable-sdl \
+    --disable-gtk \
+%endif
 	--without-debug \
 	%{!?with_mmx:--disable-asm}
 
@@ -113,10 +114,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README.* TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
+%if %{with gui}
 %files -n dv
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
+%endif
 
 %files devel
 %defattr(644,root,root,755)
