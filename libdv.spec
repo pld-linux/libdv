@@ -8,14 +8,15 @@
 Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
-Version:	0.102
+Version:	0.103
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
-# Source0-md5:	21f2968fa756961ee2cb7d96834ade80
+# Source0-md5:	b5c7d0db672a76528e100828dd866a79
 Patch0:		%{name}-include_fix.patch
 URL:		http://libdv.sourceforge.net/
+BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -23,7 +24,6 @@ BuildRequires:	libtool
 BuildRequires:	gtk+-devel >= 1.2.10-3
 BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	popt-devel
-BuildRequires:	SDL-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -88,6 +88,8 @@ Statyczna wersja biblioteki libdv.
 %{__automake}
 %configure \
 	--enable-shared \
+	--enable-sdl \
+	--enable-gtk \
 	--without-debug \
 	%{!?with_mmx:--disable-asm}
 
