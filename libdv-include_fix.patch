@@ -1,0 +1,15 @@
+diff -aurN libdv-0.99.orig/libdv/dv_types.h libdv-0.99/libdv/dv_types.h
+--- libdv-0.99.orig/libdv/dv_types.h	2003-01-01 00:04:02.000000000 +0100
++++ libdv-0.99/libdv/dv_types.h	2003-07-14 01:34:10.000000000 +0200
+@@ -26,9 +26,9 @@
+ #ifndef DV_TYPES_H
+ #define DV_TYPES_H
+ 
+-#if HAVE_CONFIG_H
++/*#if HAVE_CONFIG_H
+ # include <config.h>
+-#endif
++#endif*/
+ 
+ #if HAVE_LIBPOPT
+ #include <popt.h>
