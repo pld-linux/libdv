@@ -6,12 +6,13 @@ Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
 Version:	0.99
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 # Source0-md5: 602fa45ad13059b571fef8548a4239a4
 Patch0:		%{name}-extern.patch
+Patch1:		%{name}-include_fix.patch
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel >= 1.2.10-3
@@ -73,6 +74,7 @@ Statyczna wersja biblioteki libdv.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %configure \
