@@ -2,8 +2,8 @@
 # Conditional build:
 %bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
 #
-%ifarch athlon
-%define	with_mmx	1
+%ifarch amd64 athlon pentium3 pentium4
+%define		with_mmx	1
 %endif
 Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
