@@ -1,0 +1,12 @@
+diff -uNr libdv-0.98.orig/libdv/encode.c libdv-0.98/libdv/encode.c
+--- libdv-0.98.orig/libdv/encode.c	Thu Jul 25 05:47:20 2002
++++ libdv-0.98/libdv/encode.c	Fri Nov  8 19:08:35 2002
+@@ -1178,7 +1178,7 @@
+ 	}
+ }
+ 
+-static void process_videosegment(dv_enc_input_filter_t * input,
++extern void process_videosegment(dv_enc_input_filter_t * input,
+ 				 dv_videosegment_t* videoseg,
+ 				 uint8_t * vsbuffer, int vlc_encode_passes,
+ 				 int static_qno)
