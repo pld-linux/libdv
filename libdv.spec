@@ -1,13 +1,15 @@
 #
+# Conditional build:
 # _with_mmx - uses MMX asm (won't run on non-MMX CPU!)
+#
 Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
-Version:	0.98
-Release:	2
+Version:	0.99
+Release:	1
 License:	GPL
 Group:		X11/Libraries
-Source0:	http://download.sourceforge.net/libdv/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/libdv/%{name}-%{version}.tar.gz
 Patch0:		%{name}-extern.patch
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
@@ -15,7 +17,6 @@ BuildRequires:	gtk+-devel >= 1.2.10-3
 BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 The Quasar DV codec (libdv) is a software codec for DV video. DV is
@@ -76,7 +77,9 @@ Statyczna wersja biblioteki libdv.
 %configure \
 	--enable-shared \
 	--without-debug \
+%ifnarch athlon
 	%{!?_with_mmx:--disable-asm}
+%endif
 
 %{__make}
 
