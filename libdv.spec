@@ -3,22 +3,22 @@
 %bcond_without	gui	# don't build gui stuff
 %bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
 #
-%ifarch athlon pentium3 pentium4
+%ifarch athlon pentium3 pentium4 amd64
 %define		with_mmx	1
 %endif
 Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
-Version:	0.103
-Release:	2
+Version:	0.104
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
-# Source0-md5:	b5c7d0db672a76528e100828dd866a79
+# Source0-md5:	f6b08efce7472daa20685e6e8431f542
 Patch0:		%{name}-include_fix.patch
 URL:		http://libdv.sourceforge.net/
 %if %{with gui}
-BuildRequires:	SDL-devel
+BuildRequires:	SDL-devel >= 1.1.6
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel >= 1.2.10-3
 %endif
