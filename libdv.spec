@@ -4,16 +4,20 @@ Summary:	DV video software codec
 Summary(pl):	Biblioteka do obsЁugi formatu wideo DV
 Name:		libdv
 Version:	0.9
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
+Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
+Group(ru):	X11/Библиотеки
+Group(uk):	X11/Б╕бл╕отеки
 Source0:	http://download.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
-BuildRequires:	gtk+-devel
+BuildRequires:	gtk+-devel >= 1.2.10-3
 BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,8 +57,12 @@ Summary:	DV library headers
 Summary(pl):	Pliki nagЁСwkowe biblioteki DV
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -70,8 +78,12 @@ Summary:	DV static libraries
 Summary(pl):	Statyczne biblioteki do obsЁugi formatu DV
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -100,11 +112,11 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog NEWS README.* TODO
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
