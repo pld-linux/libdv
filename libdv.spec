@@ -7,13 +7,6 @@ Version:	0.9
 Release:	3
 License:	GPL
 Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(es):	X11/Bibliotecas
-Group(fr):	X11/Librairies
-Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
-Group(ru):	X11/Библиотеки
-Group(uk):	X11/Б╕бл╕отеки
 Source0:	http://download.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
@@ -42,8 +35,6 @@ pisany zgodnie z oficjalnymi standardami DV, IEC 61834, SMPTE 314M.
 Summary:	Programs to encode and play DV files
 Summary(pl):	Programy do kodowania i odtwarzania plikСw DV
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Requires:	%{name} = %{version}
 
 %description -n dv
@@ -56,13 +47,6 @@ Programy do kodowania i odtwarzania plikСw DV.
 Summary:	DV library headers
 Summary(pl):	Pliki nagЁСwkowe biblioteki DV
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -77,13 +61,6 @@ libdv.
 Summary:	DV static libraries
 Summary(pl):	Statyczne biblioteki do obsЁugi formatu DV
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
