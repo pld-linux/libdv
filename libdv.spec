@@ -10,12 +10,12 @@ Group(es):	X11/Bibliotecas
 Group(pl):	X11/Biblioteki
 Source0:	http://download.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
-URL:		http://libdv.sourceforge.net
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildRequires:	popt-devel
+URL:		http://libdv.sourceforge.net/
 BuildRequires:	XFree86-devel
-BuildRequires:	gtk+-devel
 BuildRequires:	autoconf
+BuildRequires:	gtk+-devel
+BuildRequires:	popt-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 
@@ -63,7 +63,7 @@ This is package with static libdv libraries.
 
 %prep
 %setup  -q
-%patch -p1
+%patch0 -p1
 
 %build
 autoconf
@@ -88,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,ChangeLog,NEWS,TODO}*
 %attr(755,root,root) %{_libdir}/lib*.so.*
 
 %files -n dv
@@ -97,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/libdv
 
