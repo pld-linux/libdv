@@ -9,11 +9,13 @@ Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
 Group(pl):	X11/Biblioteki
 Source0:	http://download.sourceforge.net/libdv/%{name}-%{version}.tar.gz
+Patch0:		%{name}-opt.patch
 URL:		http://libdv.sourceforge.net
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	popt-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel
+BuildRequires:	autoconf
 
 %define		_prefix		/usr/X11R6
 
@@ -56,15 +58,19 @@ Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
-
 %description static
 This is package with static libdv libraries.
 
 %prep
 %setup  -q
+%patch -p1
 
 %build
-%configure --enable-shared
+autoconf
+%configure \
+	--enable-shared \
+	--without-debug
+
 %{__make}
 
 %install
