@@ -22,7 +22,7 @@ BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel >= 1.2.10-3
 %endif
-BuildRequires:	pkgconfig >= 0.7
+BuildRequires:	pkgconfig >= 1:0.7
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
