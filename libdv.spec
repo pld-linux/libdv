@@ -1,16 +1,19 @@
 #
 # Conditional build:
-# _with_mmx - uses MMX asm (won't run on non-MMX CPU!)
+%bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
 #
+%ifarch athlon
+%define	with_mmx	1
+%endif
 Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
-Version:	0.99
-Release:	3
+Version:	0.101
+Release:	1
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
-# Source0-md5: 602fa45ad13059b571fef8548a4239a4
+# Source0-md5:	d42832cbe0ad2c1c1f6a7eccf35f9323
 Patch0:		%{name}-extern.patch
 Patch1:		%{name}-include_fix.patch
 URL:		http://libdv.sourceforge.net/
@@ -87,9 +90,7 @@ Statyczna wersja biblioteki libdv.
 %configure \
 	--enable-shared \
 	--without-debug \
-%ifnarch athlon
-	%{!?_with_mmx:--disable-asm}
-%endif
+	%{!?with_mmx:--disable-asm}
 
 %{__make}
 
