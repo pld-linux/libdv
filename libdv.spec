@@ -70,7 +70,7 @@ This is package with static libdv libraries.
 Statyczna wersja biblioteki libdv.
 
 %prep
-%setup  -q
+%setup -q
 
 %build
 %configure \
@@ -87,8 +87,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-gzip -9nf AUTHORS ChangeLog NEWS README.* TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -97,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog NEWS README.* TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*
 
 %files -n dv
@@ -106,10 +105,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_includedir}/libdv
 %{_libdir}/*.la
+%{_includedir}/libdv
 %{_pkgconfigdir}/*
 
 %files static
