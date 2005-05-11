@@ -3,7 +3,7 @@
 %bcond_without	gui	# don't build gui stuff
 %bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
 #
-%ifarch athlon pentium3 pentium4 amd64
+%ifarch athlon pentium3 pentium4 %{x8664}
 %define		with_mmx	1
 %endif
 Summary:	DV video software codec
@@ -24,6 +24,7 @@ BuildRequires:	gtk+-devel >= 1.2.10-3
 %endif
 BuildRequires:	pkgconfig >= 1:0.7
 BuildRequires:	popt-devel
+BuildRequires:	rpmbuild(macros) >= 1.213
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
