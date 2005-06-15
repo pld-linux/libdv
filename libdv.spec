@@ -2,6 +2,7 @@
 # Conditional build:
 %bcond_without	gui	# don't build gui stuff
 %bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
+%bcond_without	static_libs	# don't build static library
 #
 %ifarch athlon pentium3 pentium4 %{x8664}
 %define		with_mmx	1
@@ -93,7 +94,8 @@ Statyczna wersja biblioteki libdv.
 	--disable-gtk \
 %endif
 	--without-debug \
-	%{!?with_mmx:--disable-asm}
+	%{!?with_mmx:--disable-asm} \
+	%{!?with_static_libs:--disable-static}
 
 %{__make}
 
@@ -129,6 +131,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libdv
 %{_pkgconfigdir}/*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
