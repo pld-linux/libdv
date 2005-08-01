@@ -86,6 +86,7 @@ Statyczna wersja biblioteki libdv.
 
 %build
 cp /usr/share/automake/config.sub .
+CFLAGS="%{rpmcflags} -fPIC"
 %configure \
 	--enable-shared \
 %if %{with gui}
