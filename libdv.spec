@@ -4,7 +4,8 @@
 %bcond_with	mmx	# use MMX asm (won't run on non-MMX CPU!)
 %bcond_without	static_libs	# don't build static library
 #
-%ifarch athlon pentium3 pentium4 %{x8664}
+%ifarch athlon pentium3 pentium4
+# %{x8664} skipped - gas generates PIC-incompatible relocation entries
 %define		with_mmx	1
 %endif
 Summary:	DV video software codec
@@ -86,7 +87,6 @@ Statyczna wersja biblioteki libdv.
 
 %build
 cp /usr/share/automake/config.sub .
-CFLAGS="%{rpmcflags} -fPIC"
 %configure \
 	--enable-shared \
 %if %{with gui}
