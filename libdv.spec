@@ -12,7 +12,7 @@ Summary:	DV video software codec
 Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
 Name:		libdv
 Version:	0.104
-Release:	3
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
@@ -60,10 +60,6 @@ Summary:	DV library headers
 Summary(pl):	Pliki nag³ówkowe biblioteki DV
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-%if %{with gui}
-Requires:	gtk+-devel >= 1.2.10-3
-Requires:	SDL-devel >= 1.1.6
-%endif
 
 %description devel
 This is the libraries, include files and other resources you can use
