@@ -18,6 +18,7 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 # Source0-md5:	f6b08efce7472daa20685e6e8431f542
 Patch0:		%{name}-include_fix.patch
+Patch1:		%{name}-mmx.patch
 URL:		http://libdv.sourceforge.net/
 %if %{with gui}
 BuildRequires:	SDL-devel >= 1.1.6
@@ -84,6 +85,7 @@ Statyczna wersja biblioteki libdv.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp /usr/share/automake/config.sub .
