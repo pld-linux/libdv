@@ -25,7 +25,9 @@ BuildRequires:	SDL-devel >= 1.1.6
 BuildRequires:	XFree86-devel
 BuildRequires:	gtk+-devel >= 1.2.10-3
 %endif
+BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.7
 BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.213
@@ -89,6 +91,10 @@ Statyczna wersja biblioteki libdv.
 
 %build
 cp /usr/share/automake/config.sub .
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-shared \
 %if %{with gui}
