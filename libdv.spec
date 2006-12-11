@@ -21,7 +21,7 @@ URL:		http://libdv.sourceforge.net/
 %if %{with gui}
 BuildRequires:	SDL-devel >= 1.1.6
 BuildRequires:	gtk+-devel >= 1.2.10-3
-BuildRequires:	xorg-lib-libXv-devel
+BuildRequires:	XFree86-devel
 %endif
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
