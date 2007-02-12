@@ -8,7 +8,7 @@
 %define		with_mmx	1
 %endif
 Summary:	DV video software codec
-Summary(pl):	Biblioteka do obs³ugi formatu wideo DV
+Summary(pl.UTF-8):   Biblioteka do obsÅ‚ugi formatu wideo DV
 Name:		libdv
 Version:	1.0.0
 Release:	2
@@ -38,27 +38,27 @@ that support the IEEE 1394 (aka FireWire or i.Link) interface. libdv
 was developed according to the official standards for DV video, IEC
 61834 and SMPTE 314M. See http://libdv.sourceforge.net/ for more.
 
-%description -l pl
-Quasar DV (libdv) jest bibliotek± do obs³ugi obrazu DV. DV jest
-formatem stosowanym przez wiêkszo¶æ cyfrowych urz±dzeñ, zwykle tych,
-które u¿ywaj± interfejsu IEEE 1394 (FireWire/i.Link). libdv jest
+%description -l pl.UTF-8
+Quasar DV (libdv) jest bibliotekÄ… do obsÅ‚ugi obrazu DV. DV jest
+formatem stosowanym przez wiÄ™kszoÅ›Ä‡ cyfrowych urzÄ…dzeÅ„, zwykle tych,
+ktÃ³re uÅ¼ywajÄ… interfejsu IEEE 1394 (FireWire/i.Link). libdv jest
 pisany zgodnie z oficjalnymi standardami DV, IEC 61834, SMPTE 314M.
 
 %package -n dv
 Summary:	Programs to encode and play DV files
-Summary(pl):	Programy do kodowania i odtwarzania plików DV
+Summary(pl.UTF-8):   Programy do kodowania i odtwarzania plikÃ³w DV
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{version}-%{release}
 
 %description -n dv
 Programs to encode and play DV files.
 
-%description -n dv -l pl
-Programy do kodowania i odtwarzania plików DV.
+%description -n dv -l pl.UTF-8
+Programy do kodowania i odtwarzania plikÃ³w DV.
 
 %package devel
 Summary:	DV library headers
-Summary(pl):	Pliki nag³ówkowe biblioteki DV
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki DV
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -66,20 +66,20 @@ Requires:	%{name} = %{version}-%{release}
 This is the libraries, include files and other resources you can use
 to incorporate libdv into applications.
 
-%description devel -l pl
-Pliki nag³ówkowe potrzebne do budowania programów korzystaj±cych z
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe potrzebne do budowania programÃ³w korzystajÄ…cych z
 libdv.
 
 %package static
 Summary:	DV static libraries
-Summary(pl):	Statyczne biblioteki do obs³ugi formatu DV
+Summary(pl.UTF-8):   Statyczne biblioteki do obsÅ‚ugi formatu DV
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This is package with static libdv libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki libdv.
 
 %prep
