@@ -8,7 +8,7 @@
 %define		with_mmx	1
 %endif
 Summary:	DV video software codec
-Summary(pl.UTF-8):   Biblioteka do obsługi formatu wideo DV
+Summary(pl.UTF-8):	Biblioteka do obsługi formatu wideo DV
 Name:		libdv
 Version:	1.0.0
 Release:	2
@@ -46,7 +46,7 @@ pisany zgodnie z oficjalnymi standardami DV, IEC 61834, SMPTE 314M.
 
 %package -n dv
 Summary:	Programs to encode and play DV files
-Summary(pl.UTF-8):   Programy do kodowania i odtwarzania plików DV
+Summary(pl.UTF-8):	Programy do kodowania i odtwarzania plików DV
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{version}-%{release}
 
@@ -58,7 +58,7 @@ Programy do kodowania i odtwarzania plików DV.
 
 %package devel
 Summary:	DV library headers
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki DV
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki DV
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -72,7 +72,7 @@ libdv.
 
 %package static
 Summary:	DV static libraries
-Summary(pl.UTF-8):   Statyczne biblioteki do obsługi formatu DV
+Summary(pl.UTF-8):	Statyczne biblioteki do obsługi formatu DV
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
