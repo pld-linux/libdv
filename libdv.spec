@@ -4,7 +4,7 @@
 %bcond_with	mmx		# use MMX asm (won't run on non-MMX CPU!)
 %bcond_without	static_libs	# don't build static library
 
-%ifarch athlon pentium3 pentium4 %{x8664}
+%ifarch athlon pentium2 pentium3 pentium4 %{x8664}
 %define		with_mmx	1
 %endif
 Summary:	DV video software codec
@@ -12,23 +12,23 @@ Summary(pl.UTF-8):	Biblioteka do obsługi formatu wideo DV
 Name:		libdv
 Version:	1.0.0
 Release:	4
-License:	LGPL
+License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
 # Source0-md5:	f895162161cfa4bb4a94c070a7caa6c7
 Patch0:		%{name}-include_fix.patch
 URL:		http://libdv.sourceforge.net/
-%if %{with gui}
-BuildRequires:	SDL-devel >= 1.1.6
-BuildRequires:	gtk+-devel >= 1.2.10-3
-BuildRequires:	xorg-lib-libXv-devel
-%endif
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.7
 BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.213
+%if %{with gui}
+BuildRequires:	SDL-devel >= 1.1.6
+BuildRequires:	gtk+-devel >= 1.2.10-3
+BuildRequires:	xorg-lib-libXv-devel
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,18 +43,6 @@ Quasar DV (libdv) jest biblioteką do obsługi obrazu DV. DV jest
 formatem stosowanym przez większość cyfrowych urządzeń, zwykle tych,
 które używają interfejsu IEEE 1394 (FireWire/i.Link). libdv jest
 pisany zgodnie z oficjalnymi standardami DV, IEC 61834, SMPTE 314M.
-
-%package -n dv
-Summary:	Programs to encode and play DV files
-Summary(pl.UTF-8):	Programy do kodowania i odtwarzania plików DV
-Group:		X11/Applications/Multimedia
-Requires:	%{name} = %{version}-%{release}
-
-%description -n dv
-Programs to encode and play DV files.
-
-%description -n dv -l pl.UTF-8
-Programy do kodowania i odtwarzania plików DV.
 
 %package devel
 Summary:	DV library headers
@@ -82,6 +70,18 @@ This is package with static libdv libraries.
 %description static -l pl.UTF-8
 Statyczna wersja biblioteki libdv.
 
+%package -n dv
+Summary:	Programs to encode and play DV files
+Summary(pl.UTF-8):	Programy do kodowania i odtwarzania plików DV
+Group:		X11/Applications/Multimedia
+Requires:	%{name} = %{version}-%{release}
+
+%description -n dv
+Programs to encode and play DV files.
+
+%description -n dv -l pl.UTF-8
+Programy do kodowania i odtwarzania plików DV.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -93,17 +93,17 @@ Statyczna wersja biblioteki libdv.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-shared \
-%if %{with gui}
-	--enable-sdl \
-	--enable-gtk \
-%else
-	--disable-sdl \
-	--disable-gtk \
-%endif
-	--without-debug \
 	%{!?with_mmx:--disable-asm} \
-	%{!?with_static_libs:--disable-static}
+%if %{with gui}
+	--enable-gtk \
+	--enable-sdl \
+%else
+	--disable-gtk \
+	--disable-sdl \
+%endif
+	--enable-shared \
+	%{!?with_static_libs:--disable-static} \
+	--without-debug
 
 %{__make}
 
@@ -126,13 +126,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libdv.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdv.so.4
 
-%if %{with gui}
-%files -n dv
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
-%endif
-
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libdv.so
@@ -144,4 +137,17 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libdv.a
+%endif
+
+%if %{with gui}
+%files -n dv
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/dubdv
+%attr(755,root,root) %{_bindir}/dvconnect
+%attr(755,root,root) %{_bindir}/encodedv
+%attr(755,root,root) %{_bindir}/playdv
+%{_mandir}/man1/dubdv.1*
+%{_mandir}/man1/dvconnect.1*
+%{_mandir}/man1/encodedv.1*
+%{_mandir}/man1/playdv.1*
 %endif
