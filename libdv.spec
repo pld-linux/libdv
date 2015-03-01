@@ -11,7 +11,7 @@ Summary:	DV video software codec
 Summary(pl.UTF-8):	Biblioteka do obsługi formatu wideo DV
 Name:		libdv
 Version:	1.0.0
-Release:	4
+Release:	5
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/libdv/%{name}-%{version}.tar.gz
